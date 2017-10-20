@@ -48,6 +48,7 @@ app.use(routes);
 
 // Add a 404 error handler
 // Add error handler to pipe all server errors to from the routing middleware
+module.exports = app;
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
