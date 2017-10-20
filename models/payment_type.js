@@ -4,7 +4,6 @@
 module.exports = (sequelize, DataTypes) => {
   // defines payment type to have the properties id, name, account number, and user id
   var Payment_Type = sequelize.define('Payment_Type', {
-    id: DataTypes.INTEGER,
     name: DataTypes.STRING,
     account_number: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
