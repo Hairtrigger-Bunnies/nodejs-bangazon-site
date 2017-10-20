@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     Payment_Type.hasMany(models.Order, {
       foreignKey: 'payment_type_id'
     }); 
+    Payment_Type.belongsTo(models.User, {
+      foreignKey: 'payment_type_id'
+    });
   };
   return Payment_Type;
 };
