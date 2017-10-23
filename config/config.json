@@ -1,7 +1,5 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
     "database": "bangazon_site",
     "host": "127.0.0.1",
     "dialect": "postgres"
