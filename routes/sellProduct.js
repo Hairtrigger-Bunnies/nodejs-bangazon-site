@@ -5,7 +5,7 @@ const router = Router();
 
 // const { } = require('../controllers/productCtrl');
 
-router.get('/sellProduct', isLoggedIn, )
+router.post('/product', isLoggedIn, sellProduct)
 
 
 function isLoggedIn(req, res, next) {
