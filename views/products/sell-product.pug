@@ -1,10 +1,14 @@
 extends index.pug
 
 block content
-  input(type="text" placeholder="productName" value="" id="prodTitle")
-  input(type="text" placeholder="productName" value="" id="prodDescription")
-  input(type="text" placeholder="productName" value="" id="prodQuantity")
-  input(type="text" placeholder="productName" value="" id="prodPrice")
+  label(for="prodTitle") Title
+    input(type="text" placeholder="productName" value="" id="prodTitle")
+  label(for="prodDescription") Description
+    input(type="text" placeholder="productName" value="" id="prodDescription")
+  label(for="prodQuantity") Quantity
+    input(type="text" placeholder="productName" value="" id="prodQuantity")
+  label(for="prodPrice") Price
+    input(type="text" placeholder="productName" value="" id="prodPrice")
 
 
 //- title, description, quantity, price

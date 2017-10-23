@@ -3,9 +3,9 @@
 const { Router } = require('express');
 const router = Router();
 
-// const { } = require('../controllers/productCtrl');
+const { } = require('../controllers/productCtrl');
 
-router.post('/product', isLoggedIn, sellProduct)
+router.get('/product/add', isLoggedIn, sellProduct)
 
 
 function isLoggedIn(req, res, next) {

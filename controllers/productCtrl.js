@@ -7,7 +7,8 @@ module.exports.sellProduct = (req, res, nect) => {
   Products.create({
     title:req.body.title,
     description:req.body.description,
-    quantity_avail:req.body.quantity_avail
+    quantity_avail:req.body.quantity_avail,
+    price:req.body.price
   })
   .then( (data) => {
     res.status(200).redirect('')
