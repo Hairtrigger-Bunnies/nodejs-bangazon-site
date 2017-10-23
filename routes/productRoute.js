@@ -4,7 +4,6 @@ const { Router } = require('express');
 const router = Router();
 
 const {
-    getProdDetail,
     addProduct,
     displayAddProduct,
     getProdDetail //broken out this way to make it easy to list them vertically as we add functions
@@ -20,7 +19,6 @@ router.get('/product/:id', getProdDetail);
 //jm: this isloggedin prevents manually going to a route when not authenticated. call before route func to check
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
-      console.log('user', passport.User)
       return next();
   res.redirect('/login');
 }

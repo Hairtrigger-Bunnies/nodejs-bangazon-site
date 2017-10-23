@@ -1,16 +1,16 @@
 'use strict'
-
 const passport = require('passport');
+
 
 module.exports.addProduct = (req, res, next) => {
   const { Product } = req.app.get('models'); 
-  console.log('REQ', req.body);
   Product.create({
     title:req.body.title,
     description:req.body.description,
-    //JM: this uid is being pulled from the updated 'user' var via passport when isloggedin
-    user_id:passport.User.dataValues.id,
-    price:req.body.price
+    //JM: this uid is being pulled from the updated 'user' var via passport when isloggedin. same as req.passport.sessions.user
+    user_id:req.user.id,
+    price:req.body.price,
+    quantity_avail:req.body.quantity_avail
   })
   .then( (data)=>{
     res.status(200).redirect('/welcome');
