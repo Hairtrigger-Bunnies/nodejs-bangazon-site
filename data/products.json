@@ -3,6 +3,7 @@
   [
     {
         "title": "Generic Concrete Mouse",
+        "quantity_avail": 4,
         "price": 864,
         "description": "Ut recusandae nemo vitae ut sit similique cum.",
         "type_id": 11,
@@ -10,6 +11,7 @@
     },
     {
         "title": "Tasty Metal Bacon",
+        "quantity_avail": 4,
         "price": 863,
         "description": "Sint ex ut.",
         "type_id": 5,
@@ -17,6 +19,7 @@
     },
     {
         "title": "Unbranded Concrete Pants",
+        "quantity_avail": 4,
         "price": 926,
         "description": "Necessitatibus quis hic et tempore eveniet minima nemo.",
         "type_id": 3,
@@ -24,6 +27,7 @@
     },
     {
         "title": "Ergonomic Steel Salad",
+        "quantity_avail": 4,
         "price": 452,
         "description": "Ut necessitatibus quo aut placeat iure quis possimus culpa eaque.",
         "type_id": 6,
@@ -31,6 +35,7 @@
     },
     {
         "title": "Small Metal Bacon",
+        "quantity_avail": 4,
         "price": 313,
         "description": "Rerum eaque rerum eius ab quaerat ipsam commodi.",
         "type_id": 3,
@@ -38,6 +43,7 @@
     },
     {
         "title": "Generic Rubber Chicken",
+        "quantity_avail": 4,
         "price": 632,
         "description": "Est dolore nulla maiores quibusdam totam.",
         "type_id": 6,
@@ -45,6 +51,7 @@
     },
     {
         "title": "Practical Frozen Pants",
+        "quantity_avail": 4,
         "price": 485,
         "description": "Voluptates facere officiis sapiente dolore modi omnis.",
         "type_id": 2,
@@ -52,6 +59,7 @@
     },
     {
         "title": "Rustic Rubber Sausages",
+        "quantity_avail": 4,
         "price": 727,
         "description": "Provident veniam dolores optio ut aut et.",
         "type_id": 2,
@@ -59,6 +67,7 @@
     },
     {
         "title": "Unbranded Wooden Shoes",
+        "quantity_avail": 4,
         "price": 905,
         "description": "Corporis provident dolor mollitia odio rerum quia quaerat aut.",
         "type_id": 1,
@@ -66,6 +75,7 @@
     },
     {
         "title": "Sleek Granite Table",
+        "quantity_avail": 4,
         "price": 844,
         "description": "Enim sunt occaecati et deserunt.",
         "type_id": 2,
@@ -73,6 +83,7 @@
     },
     {
         "title": "Generic Metal Bike",
+        "quantity_avail": 4,
         "price": 527,
         "description": "Beatae id vel voluptatibus ad aut aliquid non ea cumque.",
         "type_id": 9,
@@ -80,6 +91,7 @@
     },
     {
         "title": "Handmade Plastic Pizza",
+        "quantity_avail": 4,
         "price": 804,
         "description": "Ipsum autem quibusdam aperiam odit repudiandae.",
         "type_id": 1,
@@ -87,6 +99,7 @@
     },
     {
         "title": "Handcrafted Cotton Table",
+        "quantity_avail": 4,
         "price": 403,
         "description": "Ut laboriosam nulla dolore mollitia.",
         "type_id": 6,
@@ -94,6 +107,7 @@
     },
     {
         "title": "Unbranded Concrete Computer",
+        "quantity_avail": 4,
         "price": 723,
         "description": "Dolor et expedita est quos.",
         "type_id": 6,
@@ -101,6 +115,7 @@
     },
     {
         "title": "Small Cotton Chips",
+        "quantity_avail": 4,
         "price": 772,
         "description": "Porro voluptatum omnis mollitia dolores.",
         "type_id": 11,
@@ -108,6 +123,7 @@
     },
     {
         "title": "Fantastic Wooden Chair",
+        "quantity_avail": 4,
         "price": 195,
         "description": "Omnis voluptatibus nostrum et consequuntur sit quidem.",
         "type_id": 11,
@@ -115,6 +131,7 @@
     },
     {
         "title": "Gorgeous Soft Chicken",
+        "quantity_avail": 4,
         "price": 263,
         "description": "Hic nihil quasi delectus dolorem occaecati repudiandae fugiat.",
         "type_id": 10,
@@ -122,6 +139,7 @@
     },
     {
         "title": "Intelligent Fresh Shoes",
+        "quantity_avail": 4,
         "price": 433,
         "description": "Recusandae debitis eum eum quasi labore.",
         "type_id": 7,
@@ -129,6 +147,7 @@
     },
     {
         "title": "Handcrafted Steel Shoes",
+        "quantity_avail": 4,
         "price": 816,
         "description": "Ut qui blanditiis inventore rerum aut expedita ullam.",
         "type_id": 5,
@@ -136,6 +155,7 @@
     },
     {
         "title": "Sleek Rubber Pants",
+        "quantity_avail": 4,
         "price": 153,
         "description": "Rerum voluptatem ut aliquid dolores sit eligendi ut.",
         "type_id": 6,
@@ -143,6 +163,7 @@
     },
     {
         "title": "Small Steel Table",
+        "quantity_avail": 4,
         "price": 532,
         "description": "Ut quas vero dolorem sit doloremque harum eos.",
         "type_id": 9,
@@ -150,6 +171,7 @@
     },
     {
         "title": "Incredible Frozen Fish",
+        "quantity_avail": 4,
         "price": 81,
         "description": "Ad error suscipit est officia aut ipsa magnam eum qui.",
         "type_id": 7,
@@ -157,6 +179,7 @@
     },
     {
         "title": "Small Frozen Mouse",
+        "quantity_avail": 4,
         "price": 588,
         "description": "Repellat fugit voluptatem qui magni ea culpa et.",
         "type_id": 2,
@@ -164,6 +187,7 @@
     },
     {
         "title": "Refined Plastic Soap",
+        "quantity_avail": 4,
         "price": 410,
         "description": "At ut aut eum ullam.",
         "type_id": 6,
@@ -171,6 +195,7 @@
     },
     {
         "title": "thingy",
+        "quantity_avail": 4,
         "price": 500000,
         "description": "does tings",
         "type_id": 5,
