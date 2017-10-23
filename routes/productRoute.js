@@ -8,3 +8,6 @@ const {
   } = require('../controllers/productCtrl.js');
 
 router.get('/product/:id', getProdDetail);
+
+
+module.exports = router;
