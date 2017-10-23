@@ -31,6 +31,7 @@ router.post('/logout', logout);
 // NOTE that we don't need to export this function. Why?
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
+      console.log('user', passport.User)
       return next();
   res.redirect('/login');
 }
