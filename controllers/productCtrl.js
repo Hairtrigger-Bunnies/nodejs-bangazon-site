@@ -1,11 +1,12 @@
 'use strict'
 
 module.exports.addProduct = (req, res, next) => {
-  const { Product, User } = req.app.get('models'); 
+  const { Product } = req.app.get('models'); 
   console.log('REQ', req.body);
   Product.create({
     title:req.body.title,
     description:req.body.description,
+    //JM: this uid is being pulled from the updated 'user' var via passport when isloggedin
     user_id:passport.User.dataValues.id,
     price:req.body.price
   })
