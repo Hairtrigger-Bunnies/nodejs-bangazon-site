@@ -5,12 +5,17 @@ const router = Router();
 
 const {
     getProdDetail,
-    addProduct
+    addProduct,
+    displayAddProduct,
+    getProdDetail //broken out this way to make it easy to list them vertically as we add functions
   } = require('../controllers/productCtrl.js');
 
 router.post('/product', isLoggedIn, addProduct);
+//get the product details for just one item
+router.get('/product/add', displayAddProduct);
+//SETS THE ROUTE TO ADD A NEW PRODUCT TO SELL
+router.get('/product/:id', getProdDetail);
 
-module.exports = router;
 
 //jm: this isloggedin prevents manually going to a route when not authenticated. call before route func to check
 function isLoggedIn(req, res, next) {
@@ -19,3 +24,6 @@ function isLoggedIn(req, res, next) {
       return next();
   res.redirect('/login');
 }
+
+
+module.exports = router;
