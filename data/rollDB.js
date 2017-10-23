@@ -6,8 +6,6 @@ const {Order_Products} = require('./order_products.json');
 let sequelize = require('sequelize');
 let queryInterface = require('sequelize/lib/query-interface');
 
-console.log("QueryInterface bulkInsert", queryInterface);
-
 let rollDB = (queryInterface) => {
     const app = require('../app');
     const models = app.get('models');
