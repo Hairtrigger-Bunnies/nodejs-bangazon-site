@@ -1,5 +1,10 @@
 'use strict';
+const passport = require('passport');
 
+// EXPORTS MODULE THAT BRINGS UP FORM TO ADD A NEW PRODUCT TO SELL- HITS productRoute
+module.exports.displayAddProduct = (req, res, nect) => {
+  res.render('new-product-form');
+};
 
 //get one product's details to PUG to the dom(-el)
 module.exports.getProdDetail = (req, res, next) => {

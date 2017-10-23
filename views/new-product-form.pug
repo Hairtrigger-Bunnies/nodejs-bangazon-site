@@ -1,0 +1,16 @@
+extends index.pug
+
+block content
+  form(name="newproduct" method="post" action="/product")
+    //- CREATES FORM TO ADD NEW PRODUCT TO SELL
+    label(for="prodTitle") Title
+    input(type="text" placeholder="productName" value="" id="prodTitle")
+    label(for="prodDescription") Description
+    input(type="text" placeholder="Description" value="" id="prodDescription")
+    label(for="prodQuantity") Quantity
+    input(type="number" placeholder="Quantity" value="" id="prodQuantity")
+    label(for="prodPrice") Price
+    input(type="number" placeholder="Price" value="" id="prodPrice")
+    button(type="submit") Sell
+
+
