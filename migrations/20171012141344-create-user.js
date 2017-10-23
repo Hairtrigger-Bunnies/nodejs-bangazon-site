@@ -1,13 +1,10 @@
 'use strict';
 
-// If using sequelize sync, migrations do not come into play. Just leaving this here if you decide
-// to keep using migrations
-
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('Users', {
       id: {
-        allowNull: true,
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -32,6 +29,12 @@ module.exports = {
       },
       phone: {
         type: Sequelize.INTEGER
+      },
+      creation_date: {
+        type: Sequelize.STRING
+      },
+      last_login: {
+        type: Sequelize.STRING
       }
     });
   },
