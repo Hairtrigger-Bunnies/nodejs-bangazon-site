@@ -51,7 +51,7 @@ module.exports.destroyProduct = (req, res, next) => {
     .then((data) => {
       res.redirect('/product/add');
     })
-  };
+};
 //jm get all prods
 module.exports.getAllProducts = (req, res, next) => {
 	const { Product } = req.app.get('models');
