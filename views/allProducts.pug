@@ -1,0 +1,9 @@
+extends index.pug
+
+block content
+  each p in Prods
+    h1= p.title
+    h4= p.description
+    form(method="GET")
+      button(type="submit" formaction="/product/" + p.id) View Details
+      button Add to Order

@@ -40,7 +40,7 @@ module.exports.getProdDetail = (req, res, next) => {
         next(err)
     })
 };
-
+//Dr delete product
 module.exports.destroyProduct = (req, res, next) => {
     const { Product } = req.app.get('models');
     Product.destroy({
@@ -52,3 +52,15 @@ module.exports.destroyProduct = (req, res, next) => {
       res.redirect('/product/add');
     })
   };
+//jm get all prods
+module.exports.getAllProducts = (req, res, next) => {
+	const { Product } = req.app.get('models');
+	Product.findAll({ order: ['id'] })
+	.then( (Prods) => {
+		Prods.reverse();
+		res.render('allProducts', {	Prods	})
+	})
+	.catch( (err) => {
+		next(err)
+	})
+};

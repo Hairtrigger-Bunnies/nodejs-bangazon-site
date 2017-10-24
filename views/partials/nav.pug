@@ -1,4 +1,8 @@
 if session.passport
   span #{session.passport.user.username}
   form(method="POST")
-    button(type="submit" formaction="/logout") logout
+    button(type="submit" formaction="/logout") Logout
+  form(method="GET")
+    button(type="submit" formaction="/product/add") Add Product
+  form(method="GET")
+    button(type="submit" formaction="/product") All Products
