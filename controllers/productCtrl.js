@@ -7,13 +7,13 @@ module.exports.addProduct = (req, res, next) => {
   Product.create({
     title:req.body.title,
     description:req.body.description,
-    //JM: this uid is being pulled from the updated 'user' var via passport when isloggedin. same as req.passport.sessions.user
+    //JM: this uid is being pulled from the updated 'user' var via git passport when isloggedin. same as req.passport.sessions.user
     user_id:req.user.id,
     price:req.body.price,
     quantity_avail:req.body.quantity_avail
   })
   .then( (data)=>{
-    res.status(200).redirect('/welcome');
+    res.status(200).redirect(`/product/${data.dataValues.id}`);
     })
     .catch( (err) => {
       res.status(200).json(err);
