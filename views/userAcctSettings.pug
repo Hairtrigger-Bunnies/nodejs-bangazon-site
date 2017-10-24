@@ -17,10 +17,18 @@ block content
     button(id="editUserBtn") Edit Account Information
   
   div(id="editUserForm" class="hidden")
-    form(action="")
-      label(for="")
-      input(type="text" value="" id="" name="")
-      button(type="submit" id="updateUserData")
+    form(name="updateUser" method="POST" action=`/user/${user.id}?_method=PUT`)
+      label(for="first_name") First name: 
+      input(type="text" value=`${user.first_name}` id="first_name" name="first_name")
+      label(for="last_name") Last name: 
+      input(type="text" value=`${user.last_name}` id="last_name" name="last_name")
+      label(for="address") Address (entire address, including zip): 
+      input(type="text" value=`${user.address}` id="address" name="address")
+      label(for="phone") Phone number: 
+      input(type="text" value=`${user.phone}` id="phone" name="phone")
+      button(type="submit" id="updateUserData") Update my info
+
+  //- including these here so they load once the pug has loaded
   script 
       include ../node_modules/jquery/dist/jquery.js
       include ../public/main.js
