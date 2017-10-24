@@ -21,8 +21,11 @@ module.exports.addProduct = (req, res, next) => {
 
 // EXPORTS MODULE THAT BRINGS UP FORM TO ADD A NEW PRODUCT TO SELL- HITS productRoute
 module.exports.displayAddProduct = (req, res, next) => {
-  const { }
-  res.render('new-product-form');
+  if (req.user) {
+    res.render('new-product-form');  
+  } else {
+    return res.redirect('/');
+  }
 };
 
 //get one product's details to PUG to the dom(-el)
