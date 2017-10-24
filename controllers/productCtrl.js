@@ -13,8 +13,7 @@ module.exports.addProduct = (req, res, next) => {
     quantity_avail:req.body.quantity_avail
   })
   .then( (data)=>{
-      console.log("data and id?", data);
-    res.status(200).redirect('/welcome');
+    res.status(200).redirect(`/product/${data.dataValues.id}`);
     })
     .catch( (err) => {
       res.status(200).json(err);
