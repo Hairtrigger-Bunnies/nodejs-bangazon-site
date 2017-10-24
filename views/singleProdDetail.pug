@@ -6,4 +6,4 @@ block content
     h4 Current price: $#{singleProd.price}
     h5 Act now! Only #{singleProd.quantity_avail} left in stock!
     button Add to Order
-    button Delete this product (seller function)
+    a(href="/deleteProduct/"+singleProd.id) Delete this product (seller function)
