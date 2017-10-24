@@ -8,4 +8,9 @@ block content
   h4 Phone: #{user.phone}
   h4 Payment information:
     each payment in userPmt
-      p #{payment.name}, Account #{payment.account_number}
+      p #{payment.name}:  #{payment.account_number}
+
+  h3 Your orders:
+    each order in userOrders
+      p Order ##{order.id} on #{order.order_date}
+
