@@ -4,13 +4,13 @@ block content
   form(name="newproduct" method="post" action="/product")
     //- CREATES FORM TO ADD NEW PRODUCT TO SELL
     label(for="prodTitle") Title
-    input(type="text" placeholder="productName" value="" id="prodTitle" name="title")
+    input(type="text" placeholder="productName" value="" id="prodTitle" name="title" required)
     label(for="prodDescription") Description
-    input(type="text" placeholder="Description" value="" id="prodDescription" name="description")
+    input(type="text" placeholder="Description" value="" id="prodDescription" name="description" required)
     label(for="prodQuantity") Quantity
-    input(type="number" placeholder="Quantity" value="" id="prodQuantity" name="quantity_avail")
+    input(type="number" placeholder="Quantity" value="" id="prodQuantity" name="quantity_avail" required min="1")
     label(for="prodPrice") Price
-    input(type="number" placeholder="Price" value="" id="prodPrice" name="price")
+    input(type="number" placeholder="Price" value="" id="prodPrice" name="price" required min="0")
     button(type="submit") Sell
 
 
