@@ -18,6 +18,8 @@ app.set('models', require('./models')); //pulls in models/index.js by default. I
 app.set('view engine', 'pug');
 app.locals.globalWow = "Express is, like, MAGIC"; //If we end up needing some value to be available to every pug template, look into using something like this that can be accessed in the templates just like any variable we pass directly to the template.
 
+app.use(express.static(__dirname + '/public'));
+
 let routes = require('./routes/');
 
 // Begin middleware stack

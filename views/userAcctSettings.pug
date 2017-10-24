@@ -1,16 +1,26 @@
 extends index.pug
 
 block content
-  h2 User Account Settings
-  h4 First Name: #{user.first_name}
-  h4 Last Name: #{user.last_name}
-  h4 Address: #{user.address}
-  h4 Phone: #{user.phone}
-  h4 Payment information:
-    each payment in userPmt
-      p #{payment.name}:  #{payment.account_number}
+  div(id="userDataDisp" class="")
+    h2 User Account Settings
+    h4 First Name: #{user.first_name}
+    h4 Last Name: #{user.last_name}
+    h4 Address: #{user.address}
+    h4 Phone: #{user.phone}
+    h4 Payment information:
+      each payment in userPmt
+        p #{payment.name}:  #{payment.account_number}
 
-  h3 Your orders:
-    each order in userOrders
-      p Order ##{order.id} on #{order.order_date}
-
+    h3 Your orders:
+      each order in userOrders
+        p Order ##{order.id} on #{order.order_date}
+    button(id="editUserBtn") Edit Account Information
+  
+  div(id="editUserForm" class="hidden")
+    form(action="")
+      label(for="")
+      input(type="text" value="" id="" name="")
+      button(type="submit" id="updateUserData")
+  script 
+      include ../node_modules/jquery/dist/jquery.js
+      include ../public/main.js
