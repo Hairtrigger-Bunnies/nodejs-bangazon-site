@@ -141,6 +141,12 @@
         "payment_type": "payment",
         "account_number": 48753248,
         "user_id": 50
+    },
+    {
+
+        "payment_type": "AMEX",
+        "account_number": 48755553248,
+        "user_id": 51
     }
   ]
 }
