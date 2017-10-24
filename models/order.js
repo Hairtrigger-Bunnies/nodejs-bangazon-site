@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Order = sequelize.define('Order', {
-    order_date: DataTypes.DATE,
+    order_date: DataTypes.STRING,
     payment_type_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
   }, {timestamps:false});

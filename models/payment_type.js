@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'payment_type_id'
     }); 
     Payment_Type.belongsTo(models.User, {
-      foreignKey: 'payment_type_id'
+      foreignKey: 'user_id'
     });
   };
   //returns payment type so it can run when called on the page
