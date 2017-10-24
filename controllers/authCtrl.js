@@ -46,7 +46,7 @@ module.exports.login = (req, res, next) => {
       return res.render('login', msgObj)
     }
 
-    module.exports.req.logIn(user, err => {
+    req.logIn(user, err => {
       if (err) { return next(err) }
       console.log("authenticated. Rerouting to welcome!", user);
       req.flash('welcomeBackMsg',`Welcome back, `);
