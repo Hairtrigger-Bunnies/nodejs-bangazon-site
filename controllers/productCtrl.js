@@ -40,3 +40,16 @@ module.exports.getProdDetail = (req, res, next) => {
         next(err)
     })
 };
+
+//jm get all prods
+module.exports.getAllProducts = (req, res, next) => {
+	const { Product } = req.app.get('models');
+	Product.findAll({ order: ['id'] })
+	.then( (Prods) => {
+		Prods.reverse();
+		res.render('allProducts', {	Prods	})
+	})
+	.catch( (err) => {
+		next(err)
+	})
+};
