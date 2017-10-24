@@ -40,7 +40,18 @@ module.exports.getProdDetail = (req, res, next) => {
         next(err)
     })
 };
-
+//Dr delete product
+module.exports.destroyProduct = (req, res, next) => {
+    const { Product } = req.app.get('models');
+    Product.destroy({
+      where: {
+        id: req.params.id,
+      }
+    })
+    .then((data) => {
+      res.redirect('/product/add');
+    })
+  };
 //jm get all prods
 module.exports.getAllProducts = (req, res, next) => {
 	const { Product } = req.app.get('models');
