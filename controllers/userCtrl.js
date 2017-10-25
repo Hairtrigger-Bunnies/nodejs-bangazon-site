@@ -22,9 +22,9 @@ module.exports.getOneUser = (req, res, next) => {
   })
 }; 
 
+//This only updates the four fields named --user cannot update purchase history, and the payment types add/delete will be a separate function. -el
 module.exports.updateUser = (req, res, next) => {
   const { User } = req.app.get('models'); 
-  console.log("reqbody", req.body);
   User.update({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
@@ -33,7 +33,7 @@ module.exports.updateUser = (req, res, next) => {
     }, {where:{id: req.user.id}
   })
   .then( function(returning){
-    res.redirect(`/user/${req.user.id}`);
+    res.redirect(`/user/${req.user.id}`); //show the updated user
   })
   .catch( (err) => {
     next(err);
