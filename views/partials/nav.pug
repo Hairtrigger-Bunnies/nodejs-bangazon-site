@@ -8,5 +8,5 @@ if session.passport
   form(method="GET")
     button(type="submit" formaction="/product") All Products
   form(method="GET")
-    input(type="text" formaction="/product" placeholder="Search for product" id="searchProdcts" name="title" required)
-    //- button(type="submit" formaction="/product") Search
+    input(type="text" placeholder="Search for product" id="searchProducts" name="title" required)
+    button(type="submit" formaction=`/search/?${title}`)

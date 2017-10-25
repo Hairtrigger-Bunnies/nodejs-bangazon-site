@@ -23,7 +23,7 @@ router.get('/deleteProduct/:id/:user_id', destroyProduct);
 
 router.get('/product', getAllProducts);
 //searches through products relating to title search for in nav bar
-router.get('/product', searchProducts);
+router.get('/search', searchProducts);
 
 //jm: this isloggedin prevents manually going to a route when not authenticated. call before route func to check
 function isLoggedIn(req, res, next) {
@@ -31,6 +31,5 @@ function isLoggedIn(req, res, next) {
       return next();
   res.redirect('/login');
 }
-
 
 module.exports = router;
