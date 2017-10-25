@@ -3,6 +3,10 @@ extends index.pug
 block content
   h2 Your Cart Items:
     ul
-      //- each product in Products
-        li
+      each product in cartProducts
+        li 
+          h4= product.title
+          h5= product.description
+          h5 $#{product.price}
+        
   //- openOrder.

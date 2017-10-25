@@ -52,20 +52,17 @@ module.exports.checkMakeOrder = (req, res, next) => {
 };
 
 module.exports.getOpenOrder = (req, res, next) => {
-  const { Product, Order, Product_Order } = req.app.get('models');
-  let cartProducts=[];
-  Order.findAll({include: [{model: Product}]},{where: {payment_type_id: null, user_id: req.user.id}})
+  const { Product, Order } = req.app.get('models');
+  Order.findAll({include: [{model: Product}], where: {payment_type_id: null, user_id: req.user.id}}) //include the Product so that it will go through the join table to get the products on that order
   .then( (openOrder) => {
     if (!openOrder) {
-      //alert that your cart is empty, redirect to main/product page?
+      //alert that your cart is empty, redirect to main/product page? TODO: this
     } else {
       let cart = openOrder[0].dataValues;
-      cartProducts = cart.Products.map(function(each){
+      let cartProducts = cart.Products.map(function(each){
+        // let cartProducts=[];
         return each.dataValues;
       })
-      
-      console.log("open order?", cartProducts);
-      console.log("CART", cart);
       res.render('open-order', {
         cart,
         cartProducts
@@ -73,3 +70,4 @@ module.exports.getOpenOrder = (req, res, next) => {
     }
   })
 };
+//need to count them somehow to show how many of each we have in cart! sequelize.count???
