@@ -4,9 +4,11 @@ const { Router } = require('express');
 const router = Router();
 
 const {
-    addPayment
+    addPayment,
+    displayAddPayment
   } = require('../controllers/paymentCtrl.js');
 
+router.get('/payment', displayAddPayment);
 router.post('/payment', isLoggedIn, addPayment);
 
 

@@ -12,5 +12,5 @@ router.get('/', (req, res, next) => {
 router.use(require('./authRoute'));
 router.use(require('./productRoute'));
 router.use(require('./userRoute'));
-
+router.use(require('./paymentRoute'));
 module.exports = router;
