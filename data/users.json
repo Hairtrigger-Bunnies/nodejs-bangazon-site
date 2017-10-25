@@ -541,6 +541,17 @@
         "email": "Johnnie_Smitham@gmail.com",
         "address": "725 Jaquelin Hollow",
         "phone_number": "061-575-1427"
+    },
+    {
+      "first_name": "Em",
+      "last_name": "Lem",
+      "creation_date": "2016-01-18T06:25:11.284Z",
+      "last_login": "2016-08-11T19:23:14.903Z",
+      "username": "emlem",
+      "email": "em@lem.com",
+      "address": "725 Jaquelin Hollow",
+      "phone_number": "061-575-1427",
+      "password": "$2a$08$oG4KIeU4kHD.i6cJU6/Rju.y2RUaMJ1EjCqGu3z.fESgOQQndgEFy"
     }
   ]
 }

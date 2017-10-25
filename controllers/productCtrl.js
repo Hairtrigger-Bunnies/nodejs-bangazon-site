@@ -22,6 +22,7 @@ module.exports.addProduct = (req, res, next) => {
 // EXPORTS MODULE THAT BRINGS UP FORM TO ADD A NEW PRODUCT TO SELL- HITS productRoute
 module.exports.displayAddProduct = (req, res, next) => {
   if (req.user) {
+      console.log("req", req.user.id);
     res.render('new-product-form');  
   } else {
     return res.redirect('/');
@@ -46,15 +47,21 @@ module.exports.getProdDetail = (req, res, next) => {
 //Dr delete product
 module.exports.destroyProduct = (req, res, next) => {
     const { Product } = req.app.get('models');
-    Product.destroy({
-      where: {
-        id: req.params.id,
-      }
-    })
-    .then((data) => {
-      res.redirect('/product/add');
-    })
+    console.log("id", req.session.passport.user.id, req.params.user_id)
+      if (req.session.passport.user.id == req.params.user_id) {
+        Product.destroy({
+            where: {
+              id: req.params.id,
+            }
+          })
+          .then((data) => {
+            res.redirect('/product');
+          })
+     } else {
+       return res.redirect('/');
+    }
   };
+   
 //jm get all prods
 module.exports.getAllProducts = (req, res, next) => {
 	const { Product } = req.app.get('models');
@@ -66,4 +73,6 @@ module.exports.getAllProducts = (req, res, next) => {
 	.catch( (err) => {
 		next(err)
 	})
+
+
 };

@@ -5,5 +5,6 @@ block content
     h4= singleProd.description
     h4 Current price: $#{singleProd.price}
     h5 Act now! Only #{singleProd.quantity_avail} left in stock!
-    button Add to Order
-    a(href="/deleteProduct/"+singleProd.id) Delete this product (seller function)
+    a(href="/deleteProduct/"+singleProd.id+"/"+singleProd.user_id) Delete this product (seller function)
+    form(method="POST") 
+        button(type="submit" formaction="/order/" + singleProd.id) Add to Order

@@ -2,6 +2,7 @@ doctype html
 html
   head
     title Bangazon!
+    link(rel="stylesheet", href="/styles/styles.css")
   body
     include partials/nav.pug
     h1 Bangazon!
@@ -13,3 +14,5 @@ html
 
     script
       include ../client/client.js
+      include ../node_modules/jquery/dist/jquery.js
+      include ../public/main.js
