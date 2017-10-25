@@ -3,8 +3,8 @@
   [
     {
         "order_date": "2017-01-16T08:25:33.005Z",
-        "payment_type_id": 1,
-        "user_id": 7
+        "payment_type_id": null,
+        "user_id": 51
     },
     {
         "order_date": "2016-06-26T03:57:58.008Z",
@@ -125,25 +125,21 @@
         "user_id": 26
     },
     {
-
         "order_date": "2017-06-04T05:36:22.777Z",
         "payment_type_id": 23,
         "user_id": 49
     },
     {
-
         "order_date": "2017-05-15T15:39:52.668Z",
         "payment_type_id": 24,
         "user_id": 7
     },
     {
-
         "order_date": "2016-11-13T00:36:37.834Z",
         "payment_type_id": 25,
         "user_id": 50
     },
     {
-      "OrderID": 26,
       "order_date": "null",
       "payment_type_id": 12,
       "user_id": 20

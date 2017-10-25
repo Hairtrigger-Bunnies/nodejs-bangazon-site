@@ -1,6 +1,7 @@
 if session.passport
   span #{session.passport.user.username}
   a(href=`/user/${session.passport.user.id}`) My Account
+  a(href='/cart') My Cart
   form(method="POST")
     button(type="submit" formaction="/logout") Logout
   form(method="GET")
