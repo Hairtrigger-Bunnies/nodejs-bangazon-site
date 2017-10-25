@@ -27,3 +27,15 @@ module.exports.addPayment = (req, res, next) => {
     res.status(200).json(err);
   })
 };
+
+module.exports.destroyPayment = (req, res, next) => {
+  const { Payment_Type } = req.app.get('models');
+         Payment_Type.destroy({
+          where: {
+            id: req.params.id,
+          }
+        })
+        .then((data) => {
+          res.redirect(`/user/${req.user.id}`);
+        })
+};

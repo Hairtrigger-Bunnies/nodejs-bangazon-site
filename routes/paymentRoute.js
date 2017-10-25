@@ -5,11 +5,13 @@ const router = Router();
 
 const {
     addPayment,
-    displayAddPayment
+    displayAddPayment,
+    destroyPayment
   } = require('../controllers/paymentCtrl.js');
 
 router.get('/payment', displayAddPayment);
 router.post('/payment', isLoggedIn, addPayment);
+router.get('/deletePayment/:id', destroyPayment);
 
 
 function isLoggedIn(req, res, next) {

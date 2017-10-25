@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     account_number: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
-  }, {timestamps: false});
+  }, {timestamps: true, paranoid: true});
   
   // associates payment type with order and user since payment type has many and belongs to orders and users
   Payment_Type.associate = (models) => {
