@@ -24,11 +24,10 @@ module.exports.getOneUser = (req, res, next) => {
 
 module.exports.updateUser = (req, res, next) => {
   const { User } = req.app.get('models'); 
-  console.log("reqparamsID", req.params.id);
-  console.log("user.id", req.user.id);
+  console.log("reqbody", req.body);
   User.update({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     phone: req.body.phone,
     address: req.body.address
     }, {where:{id: req.user.id}
