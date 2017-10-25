@@ -20,7 +20,7 @@ module.exports.getOneUser = (req, res, next) => {
       userOrders
     })
   })
-};
+}; 
 
 module.exports.updateUser = (req, res, next) => {
   const { User } = req.app.get('models'); 
@@ -33,7 +33,7 @@ module.exports.updateUser = (req, res, next) => {
     address: req.body.address
     }, {where:{id: req.user.id}
   })
-  .then( function(user){
+  .then( function(returning){
     res.redirect(`/user/${req.user.id}`);
   })
   .catch( (err) => {

@@ -11,7 +11,7 @@ block content
       each payment in userPmt
         p #{payment.name}:  #{payment.account_number}
 
-    h3 Your orders:
+    h3 Your orders: 
       each order in userOrders
         p Order ##{order.id} on #{order.order_date}
     button(id="editUserBtn") Edit Account Information

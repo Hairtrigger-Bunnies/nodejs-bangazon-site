@@ -3,13 +3,13 @@
 const { Router } = require('express');
 const router = Router();
 
-const {
+const { 
     getOneUser,
     updateUser
   } = require('../controllers/userCtrl.js');
 
 router.get('/user/:id', isLoggedIn, getOneUser);
-router.put('/user/:id', isLoggedIn, updateUser);
+router.post('/user/:id', updateUser);
 
 
 function isLoggedIn(req, res, next) {
