@@ -50,3 +50,34 @@ module.exports.checkMakeOrder = (req, res, next) => {
     }
   })
 }
+
+module.exports.destroyProductFromOrder = (req, res, next) => {
+  const { Product, Product_Order, Order } = req.app.get('models');
+  let uid = req.user.id;
+    if (req.session.passport.user.id == req.params.user_id) {
+      let param = req.params.id;
+      Product.findById(param)
+      .then( (data) => {
+
+        Order.findOne({ where: {payment_type_id: null, user_id: uid}})
+        .then( (order) => {
+
+          Product_Order.destroy({
+            where: {
+              product_id: data.dataValues.id,
+              order_id: order.dataValues.id
+            }
+          })
+
+          .then( () => {
+            res.redirect('/product');
+          })
+
+        })
+
+      })
+    
+    } else {
+     return res.redirect('/');
+  }
+};
