@@ -73,6 +73,22 @@ module.exports.getAllProducts = (req, res, next) => {
 	.catch( (err) => {
 		next(err)
 	})
+};
 
-
+//bs- get product related to search results
+module.exports.searchProducts = (req, res, next) => {
+  const { Product } = req.app.get('models');
+  if (req.user) {
+    Product.findAll({
+      where: { title: req.query.title}
+    }).then( (prods) => {
+      let Prods = prods[0].dataValues;      
+      res.render('search-products', { Prods })
+    })
+    .catch( (err) => {
+      next(err)
+    });
+  } else {
+    return res.redirect('/');
+  };
 };
