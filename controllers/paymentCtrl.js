@@ -21,7 +21,7 @@ module.exports.addPayment = (req, res, next) => {
     user_id: req.user.id
   })
   .then((data) => {
-    res.status(200).redirect(`/`);
+    res.redirect(`/user/${req.user.id}`);
   })
   .catch((err) => {
     res.status(200).json(err);
