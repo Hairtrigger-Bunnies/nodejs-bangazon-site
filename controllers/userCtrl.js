@@ -30,12 +30,17 @@ module.exports.updateUser = (req, res, next) => {
     last_name: req.body.last_name,
     phone: req.body.phone,
     address: req.body.address
-    }, {where:{id: req.user.id}
-  })
-  .then( function(returning){
-    res.redirect(`/user/${req.user.id}`); //show the updated user
-  })
-  .catch( (err) => {
-    next(err);
-  })
+  }, {where:{id: req.user.id}
+})
+.then( function(returning){
+  res.redirect(`/user/${req.user.id}`); //show the updated user
+})
+.catch( (err) => {
+  next(err);
+})
 };
+
+module.exports.getOpenOrder = (req, res, next) => {
+  const { User, Order, Product_Order } = req.app.get('models'); 
+  Order.findAll
+}
