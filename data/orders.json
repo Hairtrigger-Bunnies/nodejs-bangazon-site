@@ -147,6 +147,11 @@
       "order_date": "null",
       "payment_type_id": 12,
       "user_id": 20
-    }
+    },
+    {
+        "order_date": "null",
+        "payment_type_id": null,
+        "user_id": 51
+      }
   ]
 }
