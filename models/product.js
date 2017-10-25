@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     quantity_avail: DataTypes.INTEGER
   },  {timestamps: false});
   
+  let SearchModel = require('pg-search-sequelize');
+  Product = new SearchModel(Product);
+
   Product.associate = (models) => {
     Product.belongsTo(models.User, {
       foreignKey: 'user_id'
