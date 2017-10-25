@@ -23,9 +23,9 @@ let rollDB = (queryInterface) => {
     .then( () => {
         return models.Order.bulkCreate(Orders);
     })
-    // .then( () => {
-    //     return models.Product_Order.bulkCreate(Product_Orders);
-    // })
+    .then( () => {
+        return models.Product_Order.bulkCreate(Order_Products);
+    })
     .catch( (err)=> {
         console.log("ERRRR", err);
     })
