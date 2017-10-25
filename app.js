@@ -50,6 +50,21 @@ app.use(routes);
 
 // Add a 404 error handler
 // Add error handler to pipe all server errors to from the routing middleware
+app.use( (req, res, next) => {
+  let error = new Error('sorry, not found.');
+  error.status = 404;
+  next(error);
+});
+
+app.use( (err, req, res, next) => {
+  console.log(err)
+  res.status(err.status||500);
+  res.json({
+  message:"A problem occurred.",
+err:err
+  })
+});
+
 module.exports = app;
 
 app.listen(port, () => {
