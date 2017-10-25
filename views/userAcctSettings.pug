@@ -10,6 +10,7 @@ block content
     h4 Payment information:
       each payment in userPmt
         p #{payment.name}:  #{payment.account_number}
+        a(href="/deletePayment/"+ payment.id) Delete Payment
 
     h3 Your orders: 
       each order in userOrders
