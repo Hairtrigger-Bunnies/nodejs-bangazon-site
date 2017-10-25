@@ -6,7 +6,10 @@ const router = Router();
 const {
     addProduct,
     displayAddProduct,
-    getProdDetail //broken out this way to make it easy to list them vertically as we add functions
+    destroyProduct,
+     //broken out this way to make it easy to list them vertically as we add functions
+    getProdDetail, //broken out this way to make it easy to list them vertically as we add functions
+    getAllProducts
   } = require('../controllers/productCtrl.js');
 
 router.post('/product', isLoggedIn, addProduct);
@@ -14,6 +17,10 @@ router.post('/product', isLoggedIn, addProduct);
 router.get('/product/add', displayAddProduct);
 //SETS THE ROUTE TO ADD A NEW PRODUCT TO SELL
 router.get('/product/:id', getProdDetail);
+//sets route to delete product
+router.get('/deleteProduct/:id', destroyProduct);
+
+router.get('/product', getAllProducts);
 
 
 //jm: this isloggedin prevents manually going to a route when not authenticated. call before route func to check
