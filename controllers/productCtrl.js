@@ -77,13 +77,11 @@ module.exports.getAllProducts = (req, res, next) => {
 
 //bs- get product related to search results
 module.exports.searchProducts = (req, res, next) => {
-  console.log("title", req.query.title);
   const { Product } = req.app.get('models');
   if (req.user) {
     Product.findAll({
       where: { title: req.query.title}
     }).then( (prods) => {
-      console.log("prods", prods);
       let Prods = prods[0].dataValues;      
       res.render('search-products', { Prods })
     })
