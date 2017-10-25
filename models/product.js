@@ -13,9 +13,14 @@ module.exports = (sequelize, DataTypes) => {
     Product.belongsTo(models.User, {
       foreignKey: 'user_id'
     });
-    Product.hasOne(models.Product_Order, {
-      foreignKey: 'product_id'
+    Product.belongsToMany(models.Order, {
+      through: {
+        model: 'Product_Order',
+        unique: false
+      },
+      foreignKey: 'product_id',
+      constraints: false
     });
   }
   return Product;
-};
+}; 

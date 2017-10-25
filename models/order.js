@@ -8,8 +8,13 @@ module.exports = (sequelize, DataTypes) => {
   
 
   Order.associate = (models) => {
-    Order.hasMany(models.Product_Order, { 
-      foreignKey: 'order_id'
+    Order.belongsToMany(models.Product, { 
+      through: {
+        model: 'Product_Order',
+        unique: false
+      },
+      foreignKey: 'order_id',
+      constraints: false
     });
 
     Order.belongsTo(models.User, {
@@ -19,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     Order.belongsTo(models.Payment_Type, {
       foreignKey: 'payment_type_id'
     });
-  }
+  } 
 
   return Order;
 };

@@ -1,5 +1,5 @@
 'use strict';
-
+let sequelize = require('sequelize');
 //jm: this func first checks if user has an existing order or not, creates order if needed, then adds product to prodorder
 module.exports.checkMakeOrder = (req, res, next) => {
 	const { Product, Order, Product_Order } = req.app.get('models');
@@ -53,15 +53,22 @@ module.exports.checkMakeOrder = (req, res, next) => {
 
 module.exports.getOpenOrder = (req, res, next) => {
   const { Product, Order, Product_Order } = req.app.get('models');
-  Order.findAll({ where: {payment_type_id: null, user_id: req.user.id}})
+  let cartProducts=[];
+  Order.findAll({include: [{model: Product}]},{where: {payment_type_id: null, user_id: req.user.id}})
   .then( (openOrder) => {
     if (!openOrder) {
       //alert that your cart is empty, redirect to main/product page?
     } else {
-      console.log("open order data values?", openOrder[0].dataValues);
-      let cart = openOrder.dataValues
+      let cart = openOrder[0].dataValues;
+      cartProducts = cart.Products.map(function(each){
+        return each.dataValues;
+      })
+      
+      console.log("open order?", cartProducts);
+      console.log("CART", cart);
       res.render('open-order', {
-        cart
+        cart,
+        cartProducts
       })
     }
   })
