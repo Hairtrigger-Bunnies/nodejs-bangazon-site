@@ -9,3 +9,45 @@
 
 ## Issue
 1. Include a link to the issue ticket by typing `#` and then select whichever one it is.
+
+## Bangazon
+
+## Nodejs-Bangazon-Site
+
+This group project allows a Seller/Buyer to interact with a website ordering system to create products to sell or buy products created by the seller.
+
+
+>
+Installing Technologies/ Dependencies
+
+Pug
+Sequelize
+PSQL
+Method-Overide
+Express 
+Passport
+Bcrypt-nodejs
+Body-parser
+Express-flash
+Express-session
+Nodemon
+Faker
+
+Download and use any text editor of your choosing: SublimeText, VS Code, etc.
+
+For both OSX and Windows users
+
+NPM
+
+Run npm install —save -dev to install the node modules both globally and save it to the package.json in one step.
+
+
+Run npm run rollDB
+To tear down and populate the database
+
+
+
+Run npm Start
+To start nodemon
+
+1. Register a account with an  username, email, First/Last name, password of your choosing.
