@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   
 
   Order.associate = (models) => {
-    Order.belongsTo(models.Product_Order, { 
+    Order.hasMany(models.Product_Order, { 
       foreignKey: 'order_id'
     });
 

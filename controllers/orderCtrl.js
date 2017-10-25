@@ -53,13 +53,15 @@ module.exports.checkMakeOrder = (req, res, next) => {
 
 module.exports.getOpenOrder = (req, res, next) => {
   const { Product, Order, Product_Order } = req.app.get('models');
-  Order.findOne({ where: {payment_type_id: null, user_id: uid}})
+  Order.findAll({ where: {payment_type_id: null, user_id: req.user.id}})
   .then( (openOrder) => {
     if (!openOrder) {
       //alert that your cart is empty, redirect to main/product page?
     } else {
+      console.log("open order data values?", openOrder[0].dataValues);
+      let cart = openOrder.dataValues
       res.render('open-order', {
-        openOrder
+        cart
       })
     }
   })

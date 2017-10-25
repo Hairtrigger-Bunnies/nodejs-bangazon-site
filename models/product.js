@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     Product.belongsTo(models.User, {
       foreignKey: 'user_id'
     });
-    Product.belongsTo(models.Product_Order, {
+    Product.hasOne(models.Product_Order, {
       foreignKey: 'product_id'
     });
   }

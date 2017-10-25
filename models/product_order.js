@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps:false});
 
   Product_Order.associate = (models) => {
-        Product_Order.hasMany(models.Order, {
+        Product_Order.belongsTo(models.Order, {
           foreignKey:'order_id'
         });
 
-        Product_Order.hasMany(models.Product, {
+        Product_Order.belongsTo(models.Product, {
           foreignKey:'product_id'          
         });
       }
