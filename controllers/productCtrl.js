@@ -58,7 +58,7 @@ module.exports.destroyProduct = (req, res, next) => {
             res.redirect('/product');
           })
      } else {
-       return res.redirect('/');
+       return res.send("You Don't Have Permission To Delete This Item");
     }
   };
    
