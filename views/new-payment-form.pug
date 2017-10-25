@@ -1,0 +1,10 @@
+extends index.pug
+
+block content
+  form(name="newpayment" method="post" action="/payment")
+    //- CREATES FORM TO ADD NEW PRODUCT TO SELL
+    label(for="paymentName") Name
+    input(type="text" placeholder="Payment Name" value="" id="paymentName" name="name" required)
+    label(for="paymentAccNum") Account Number
+    input(type="number" placeholder="Account Number" value="" id="paymentAccNum" name="account number" required)
+    button(type="submit") Add Payment
