@@ -2,145 +2,151 @@
   "Payment_Types":
   [
     {
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 50999614,
         "user_id": 7
     },
     {
-        "payment_type": "withdrawal",
+        "name": "withdrawal",
         "account_number": 58034383,
         "user_id": 30
     },
     {
-        "payment_type": "deposit",
+        "name": "deposit",
         "account_number": 45768869,
         "user_id": 14
     },
     {
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 72021367,
         "user_id": 24
     },
     {
-        "payment_type": "deposit",
+        "name": "deposit",
         "account_number": 36642619,
         "user_id": 19
     },
     {
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 78211849,
         "user_id": 41
     },
     {
-        "payment_type": "deposit",
+        "name": "deposit",
         "account_number": 71628956,
         "user_id": 35
     },
     {
-        "payment_type": "invoice",
+        "name": "invoice",
         "account_number": 57780419,
         "user_id": 47
     },
     {
-        "payment_type": "deposit",
+        "name": "deposit",
         "account_number": 9103295,
         "user_id": 17
     },
     {
 
-        "payment_type": "invoice",
+        "name": "invoice",
         "account_number": 44509290,
         "user_id": 31
     },
     {
 
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 97402835,
         "user_id": 1
     },
     {
 
-        "payment_type": "withdrawal",
+        "name": "withdrawal",
         "account_number": 72488899,
         "user_id": 43
     },
     {
 
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 63863348,
         "user_id": 14
     },
     {
 
-        "payment_type": "withdrawal",
+        "name": "withdrawal",
         "account_number": 78559620,
         "user_id": 12
     },
     {
 
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 47388939,
         "user_id": 11
     },
     {
 
-        "payment_type": "invoice",
+        "name": "invoice",
         "account_number": 42346601,
         "user_id": 42
     },
     {
 
-        "payment_type": "invoice",
+        "name": "invoice",
         "account_number": 23733345,
         "user_id": 25
     },
     {
 
-        "payment_type": "deposit",
+        "name": "deposit",
         "account_number": 53113420,
         "user_id": 3
     },
     {
 
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 748430,
         "user_id": 21
     },
     {
 
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 77054693,
         "user_id": 4
     },
     {
 
-        "payment_type": "invoice",
+        "name": "invoice",
         "account_number": 20546123,
         "user_id": 31
     },
     {
 
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 31010729,
         "user_id": 26
     },
     {
 
-        "payment_type": "deposit",
+        "name": "deposit",
         "account_number": 7491154,
         "user_id": 49
     },
     {
 
-        "payment_type": "invoice",
+        "name": "invoice",
         "account_number": 1013943,
         "user_id": 7
     },
     {
 
-        "payment_type": "payment",
+        "name": "payment",
         "account_number": 48753248,
         "user_id": 50
+    },
+    {
+
+        "name": "AMEX",
+        "account_number": 87555532,
+        "user_id": 51
     }
   ]
 }

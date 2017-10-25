@@ -18,6 +18,8 @@ app.set('models', require('./models')); //pulls in models/index.js by default. I
 app.set('view engine', 'pug');
 app.locals.globalWow = "Express is, like, MAGIC"; //If we end up needing some value to be available to every pug template, look into using something like this that can be accessed in the templates just like any variable we pass directly to the template.
 
+app.use(express.static(__dirname + '/public'));
+
 let routes = require('./routes/');
 
 // Begin middleware stack
@@ -47,7 +49,22 @@ app.use(flash());
 app.use(routes);
 
 // Add a 404 error handler
+app.use( (req, res, next) => {
+  let error = new Error('sorry, not found.');
+  error.status = 404;
+  next(error);
+});
+
 // Add error handler to pipe all server errors to from the routing middleware
+app.use( (err, req, res, next) => {
+  console.log(err)
+  res.status(err.status||500);
+  res.json({
+  message:"A problem occurred.",
+  err:err
+  })
+});
+
 module.exports = app;
 
 app.listen(port, () => {
