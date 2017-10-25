@@ -73,6 +73,24 @@ module.exports.getAllProducts = (req, res, next) => {
 	.catch( (err) => {
 		next(err)
 	})
-
-
 };
+
+//bs- get product related to search results
+module.exports.searchProducts = (req, res, next) => {
+  const { Product } = req.app.get('models');
+  if (req.user) {
+    Product.findAll({
+      group: title
+    });
+  } else {
+    return res.redirect('/');
+  };
+};
+
+// Project.findOne({
+//   where: {title: 'aProject'},
+//   attributes: ['id', ['name', 'title']]
+// }).then(project => {
+//   // project will be the first entry of the Projects table with the title 'aProject' || null
+//   // project.title will contain the name of the project
+// })
