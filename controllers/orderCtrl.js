@@ -54,17 +54,17 @@ module.exports.checkMakeOrder = (req, res, next) => {
 module.exports.destroyProductFromOrder = (req, res, next) => {
   const { Product, Product_Order, Order } = req.app.get('models');
   let uid = req.user.id;
-    if (req.session.passport.user.id == req.params.user_id) {
+    // if (req.session.passport.user.id == req.params.user_id) {
       let param = req.params.id;
       Product.findById(param)
-      .then( (data) => {
+      .then( (prod) => {
 
         Order.findOne({ where: {payment_type_id: null, user_id: uid}})
         .then( (order) => {
 
           Product_Order.destroy({
             where: {
-              product_id: data.dataValues.id,
+              product_id: prod.dataValues.id,
               order_id: order.dataValues.id
             }
           })
@@ -77,7 +77,27 @@ module.exports.destroyProductFromOrder = (req, res, next) => {
 
       })
     
-    } else {
-     return res.redirect('/');
-  }
+  //   } else {
+  //    return res.redirect('/');
+  // }
 };
+
+module.exports.destroyOrder = (req, res, next) => {
+  const { Product, Product_Order, Order } = req.app.get('models');
+  let uid = req.user.id;
+  let param = req.params.id;
+  Order.findById(param)
+  .then( (order) => {
+
+    Order.destroy({ where: {order_id: order.dataValues.id}})
+    .then( () => {
+
+      Product_Order.destroy({ where: {order_id: order.dataValues.id}})
+      .then( (orderprods) => {
+        Product_Order.destroy
+      })
+
+    })
+
+  })
+}

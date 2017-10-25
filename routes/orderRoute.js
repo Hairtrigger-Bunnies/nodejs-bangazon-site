@@ -4,10 +4,14 @@ const { Router } = require('express');
 const router = Router();
 
 const {
-    checkMakeOrder
+    checkMakeOrder,
+    destroyOrder,
+    destroyProductFromOrder
   } = require('../controllers/orderCtrl.js');
 
 router.post('/order/:id', isLoggedIn, checkMakeOrder);
+router.get('/order/:id', isLoggedIn, destroyOrder);
+router.get('/order/:id', isLoggedIn, destroyProductFromOrder);
 
 
 
