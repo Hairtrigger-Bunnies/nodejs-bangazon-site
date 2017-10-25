@@ -1,5 +1,8 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
+  let SearchModel = require('pg-search-sequelize');
+  
   var Product = sequelize.define('Product', {
     title: DataTypes.STRING,
     description: DataTypes.STRING,
@@ -8,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     type_id: DataTypes.INTEGER,
     quantity_avail: DataTypes.INTEGER
   },  {timestamps: false});
-  
-  let SearchModel = require('pg-search-sequelize');
+
   Product = new SearchModel(Product);
 
   Product.associate = (models) => {

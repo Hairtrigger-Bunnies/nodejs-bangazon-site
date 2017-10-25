@@ -80,7 +80,7 @@ module.exports.searchProducts = (req, res, next) => {
   console.log("title", req.query.title);
   const { Product } = req.app.get('models');
   if (req.user) {
-    Product.searchByText( req.query.title )
+    Product.searchByText(req.query.title)
     .then( (prods) => {
       console.log("prods", prods);
       let Prods = prods[0].dataValues;      
