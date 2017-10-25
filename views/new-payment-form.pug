@@ -1,0 +1,9 @@
+extends index.pug
+
+block content
+  form(name="newpayment" method="post" action="/payment")
+    label(for="paymentName") Name
+    input(type="text" placeholder="Payment Name" value="" id="paymentName" name="name" required)
+    label(for="paymentAccountNumber") Account Number
+    input(type="number" placeholder="Account Number" value="" id="paymentAccountNumber" name="account_number" required)
+    button(type="submit") Save Payment

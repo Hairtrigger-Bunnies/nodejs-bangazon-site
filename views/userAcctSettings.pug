@@ -15,7 +15,8 @@ block content
       each order in userOrders
         p Order ##{order.id} on #{order.order_date}
     button(id="editUserBtn") Edit Account Information
-  
+    form(method="GET")
+      button(type="submit" formaction="/payment") Add Payment
   div(id="editUserForm" class="hidden")
     form(name="updateUser" method="POST" action=`/user/${user.id}?_method=PUT`)
       label(for="first_name") First name: 

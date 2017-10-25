@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       account_number: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       user_id: {
         type: Sequelize.INTEGER
