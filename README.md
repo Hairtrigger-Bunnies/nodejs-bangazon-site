@@ -20,34 +20,33 @@ This group project allows a Seller/Buyer to interact with a website ordering sys
 >
 Installing Technologies/ Dependencies
 
-Pug
-Sequelize
-PSQL
-Method-Overide
-Express 
-Passport
-Bcrypt-nodejs
-Body-parser
-Express-flash
-Express-session
-Nodemon
+Pug,
+Sequelize,
+PSQL,
+Method-Overide,
+Express,
+Passport,
+Bcrypt-nodejs,
+Body-parser,
+Express-flash,
+Express-session,
+Nodemon,
+and
 Faker
 
 Download and use any text editor of your choosing: SublimeText, VS Code, etc.
 
 For both OSX and Windows users
 
-NPM
+## NPM
 
-Run npm install —save -dev to install the node modules both globally and save it to the package.json in one step.
+Run npm install to install the node modules and save it to the package.json in one step.
 
 
 Run npm run rollDB
-To tear down and populate the database
+To tear down, populate the database and start nodemon.
 
-
-
-Run npm Start
-To start nodemon
+## User/Seller Guide 
 
 1. Register a account with an  username, email, First/Last name, password of your choosing.
+2. Click on My Account link in the nav bar to add/edit account and payment information.

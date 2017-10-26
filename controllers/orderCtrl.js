@@ -14,7 +14,9 @@ module.exports.checkMakeOrder = (req, res, next) => {
       let param = req.params.id;
       Product.findById(param)
       .then( (prod) => {
-        //take the order and product data to insert into prodorder table
+        //take the order and product data to insert into prodorder table *****
+        //still doesn't accept dupes, perhaps we can mess with extra params here?
+        // order.addProduct(prod)
         Product_Order.create({
           order_id:order.dataValues.id,
           product_id:prod.dataValues.id
@@ -35,9 +37,11 @@ module.exports.checkMakeOrder = (req, res, next) => {
         let param = req.params.id;
         Product.findById(param)
         .then( (prod) => {
-          //take the order and product data to insert into prodorder table          
+          //take the order and product data to insert into prodorder table ****
+          //still doesn't accept dupes, perhaps we can mess with extra params here?
+          // neworder.addProduct(prod);
           Product_Order.create({
-            order_id:neworder.dataValues.id,
+            order_id:order.dataValues.id,
             product_id:prod.dataValues.id
           })
         })
@@ -49,6 +53,40 @@ module.exports.checkMakeOrder = (req, res, next) => {
         res.status(200).json(err);
       })
     }
+  })
+}
+
+module.exports.destroyProductFromOrder = (req, res, next) => {
+  const { Product, Order } = req.app.get('models');
+  let uid = req.user.id;
+  let param = req.params.id;
+  Product.findById(param)
+  .then( (prod) => {
+
+    Order.findOne({ where: {payment_type_id: null, user_id: uid}})
+    .then( (order) => {
+      //syncro gives us this func 
+      order.removeProduct(prod)
+
+      .then( () => {
+        res.redirect('/cart');
+      })
+    })
+  })
+};
+
+module.exports.destroyOrder = (req, res, next) => {
+  const { Product, Order } = req.app.get('models');
+  let uid = req.user.id;
+  Order.findOne({ where: {payment_type_id: null, user_id: uid}})
+  .then( (order) => {
+
+    //destroys order, but the history remains in the join table? doesn't affect anything though...
+    Order.destroy({ where: {payment_type_id: null, user_id: uid}})
+    .then( () => {
+      res.redirect('/');
+    })
+
   })
 };
 
@@ -146,4 +184,4 @@ module.exports.payForOrder = (req, res, next) => {
 
 module.exports.renderThanksPage = (req, res, next) => {
   res.render('thanks');
-}
+};
