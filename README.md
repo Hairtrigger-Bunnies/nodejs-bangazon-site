@@ -46,5 +46,7 @@ Run npm install to install the node modules and save it to the package.json in o
 Run npm run rollDB
 To tear down, populate the database and start nodemon.
 
+## User/Seller Guide 
+
 1. Register a account with an  username, email, First/Last name, password of your choosing.
 2. Click on My Account link in the nav bar to add/edit account and payment information.
