@@ -95,7 +95,7 @@ module.exports.getOpenOrder = (req, res, next) => {
   Order.findAll({include: [{model: Product}], where: {payment_type_id: null, user_id: req.user.id}}) //include the Product so that it will go through the join table to get the products on that order
   .then( (openOrder) => {
     // console.log("openOrder??", openOrder);
-    if (!openOrder) {
+    if (!openOrder[0]) {
       //alert that your cart is empty, redirect to main/product page? TODO: this
       console.log("Your cart is empty!");
       req.flash('emptyCart',`Your cart is empty!`);
