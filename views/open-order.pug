@@ -8,5 +8,5 @@ block content
           h4= product.title
           h5= product.description
           h5 $#{product.price}
-        
-  //- openOrder.
+          h5 #{product.quantityInCart} currently in your cart.
+    button(type="button") 

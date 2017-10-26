@@ -5,11 +5,12 @@ const router = Router();
 
 const {
     checkMakeOrder,
-    getOpenOrder
+    getOpenOrder,
+    countEachProdOnOrder
   } = require('../controllers/orderCtrl.js');
 
 router.post('/order/:id', isLoggedIn, checkMakeOrder);
-router.get('/cart', isLoggedIn, getOpenOrder);
+router.get('/cart', isLoggedIn, getOpenOrder, countEachProdOnOrder);
 
 
 function isLoggedIn(req, res, next) {
