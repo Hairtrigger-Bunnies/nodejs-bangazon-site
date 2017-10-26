@@ -1,9 +1,13 @@
 if session.passport
   span #{session.passport.user.username}
   a(href=`/user/${session.passport.user.id}`) My Account
+  a(href='/cart') My Cart
   form(method="POST")
     button(type="submit" formaction="/logout") Logout
   form(method="GET")
     button(type="submit" formaction="/product/add") Add Product
   form(method="GET")
     button(type="submit" formaction="/product") All Products
+  form(method="GET")
+    input(type="text" placeholder="Search for product" id="searchProducts" name="title" required)
+    button(type="submit" formaction=`/search/?${title}`)

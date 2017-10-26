@@ -6,13 +6,14 @@ const router = Router();
 const {
     checkMakeOrder,
     destroyOrder,
-    destroyProductFromOrder
+    destroyProductFromOrder,
+    getOpenOrder
   } = require('../controllers/orderCtrl.js');
 
 router.post('/order/:id', isLoggedIn, checkMakeOrder);
-router.get('/order/:id', isLoggedIn, destroyOrder);
-router.get('/order/:id', isLoggedIn, destroyProductFromOrder);
-
+router.get('/delete_order/:id', isLoggedIn, destroyOrder);
+router.get('/remove_order_product/:id', isLoggedIn, destroyProductFromOrder);
+router.post('/cart', isLoggedIn, getOpenOrder);
 
 
 function isLoggedIn(req, res, next) {

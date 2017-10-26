@@ -10,12 +10,14 @@ block content
     h4 Payment information:
       each payment in userPmt
         p #{payment.name}:  #{payment.account_number}
+        a(href="/deletePayment/"+ payment.id) Delete Payment
 
     h3 Your orders: 
       each order in userOrders
         p Order ##{order.id} on #{order.order_date}
     button(id="editUserBtn") Edit Account Information
-  
+    form(method="GET")
+      button(type="submit" formaction="/payment") Add Payment
   div(id="editUserForm" class="hidden")
     form(name="updateUser" method="POST" action=`/user/${user.id}?_method=PUT`)
       label(for="first_name") First name: 
@@ -24,7 +26,7 @@ block content
       input(type="text" value=`${user.last_name}` id="last_name" name="last_name")
       label(for="address") Address (entire address, including zip): 
       input(type="text" value=`${user.address}` id="address" name="address")
-      label(for="phone") Phone number (enter as a number without dashes): 
+      label(for="phone") Phone number: 
       input(type="text" value=`${user.phone}` id="phone" name="phone")
       button(type="submit" id="updateUserData") Update my info
 

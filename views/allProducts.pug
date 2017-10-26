@@ -1,6 +1,8 @@
 extends index.pug
 
 block content
+  if messages.emptyCart
+  h1= messages.emptyCart
   each p in Prods
     h1= p.title
     h4= p.description
