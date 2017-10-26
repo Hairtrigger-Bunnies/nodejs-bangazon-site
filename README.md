@@ -43,11 +43,6 @@ Run npm install —save -dev to install the node modules both globally and save 
 
 
 Run npm run rollDB
-To tear down and populate the database
-
-
-
-Run npm Start
-To start nodemon
+To tear down, populate the database and start nodemon.
 
 1. Register a account with an  username, email, First/Last name, password of your choosing.
