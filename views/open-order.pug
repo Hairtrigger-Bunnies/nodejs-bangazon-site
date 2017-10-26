@@ -1,6 +1,7 @@
 extends index.pug
 
 block content
+
   h2 Your Cart Items:
     ul
       each product in cartProducts
@@ -10,4 +11,9 @@ block content
           h5 $#{product.price}
           h5 #{product.quantityInCart} currently in your cart.
         a(href="/remove_Order_Product/"+product.id) Remove product
+        
+      h2 Your total is $#{total}.
+      a(href=`/order/${order_id}`) Complete Order
+        
   a(href="/delete_Order") Cancel Order
+

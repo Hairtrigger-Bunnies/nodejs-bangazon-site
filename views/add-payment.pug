@@ -1,0 +1,10 @@
+extends index.pug
+
+block content
+
+    form(method="POST" action=`/order/complete/${order_id}?_method=PATCH`)
+        select(name="payment_type_id")
+            option(value="" disabled) Select:
+                for pmtOpt in pmtOpts
+                    option(value=`${pmtOpt.id}`) #{pmtOpt.name}
+        button(type="submit" id="submitType" class="" style="cursor: pointer;") Submit
