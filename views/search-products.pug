@@ -1,10 +1,13 @@
 extends index.pug
 
 block content
-  h1= Prods.title
-  h4= Prods.description
-  h4 Current price: $#{Prods.price}
-  h5 Act now! Only #{Prods.quantity_avail} left in stock!
-  a(href="/deleteProduct/"+Prods.id+"/"+Prods.user_id) Delete this product (seller function)
-  form(method="POST") 
-    button(type="submit" formaction="/order/" + Prods.id) Add to Order
+  ul
+    each p in Prods ? Prods : ["there are no products"]
+      li= Prods.title
+      li= Prods.description
+      li Current price: $#{Prods.price}
+      li Act now! Only #{Prods.quantity_avail} left in stock!
+      a(href="/deleteProduct/"+Prods.id+"/"+Prods.user_id) Delete this product (seller function)
+      form(method="POST") 
+        button(type="submit" formaction="/order/" + Prods.id) Add to Order
+    

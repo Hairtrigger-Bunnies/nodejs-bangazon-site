@@ -80,15 +80,39 @@ module.exports.searchProducts = (req, res, next) => {
   const { Product } = req.app.get('models');
   if (req.user) {
     Product.findAll({
-      where: { title: req.query.title}
-    }).then( (prods) => {
-      let Prods = prods[0].dataValues;      
+      where: {
+        title: {
+          $iLike: `%${req.query.title}%`
+        }
+      }
+    })
+    .then( (products) => {
+      let Prods = products[0].dataValues;      
+      console.log('Prods', Prods);
       res.render('search-products', { Prods })
     })
     .catch( (err) => {
       next(err)
-    });
+    })
   } else {
     return res.redirect('/');
   };
 };
+
+//   const { Product } = req.app.get('models');
+//   if (req.user) {
+//     Product.findAll({
+//       where: { title: req.query.title}
+//     }).then( (prods) => {
+//       let Prods = prods[0].dataValues;      
+//       res.render('search-products', { Prods })
+//     })
+//     .catch( (err) => {
+//       next(err)
+//     });
+//   } else {
+//     return res.redirect('/');
+//   };
+// };
+
+

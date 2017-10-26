@@ -8,9 +8,6 @@ block content
           h4= product.title
           h5= product.description
           h5 $#{product.price}
+          h5 #{product.quantityInCart} currently in your cart.
         a(href="/remove_Order_Product/"+product.id) Remove product
   a(href="/delete_Order") Cancel Order
-  
-
-        
-  //- openOrder.
