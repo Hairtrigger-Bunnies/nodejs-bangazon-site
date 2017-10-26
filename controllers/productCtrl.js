@@ -75,21 +75,21 @@ module.exports.getAllProducts = (req, res, next) => {
 	})
 };
 
-//bs- get product related to search results
+//bs/DR- get product related to search results
 module.exports.searchProducts = (req, res, next) => {
   const { Product } = req.app.get('models');
   if (req.user) {
     Product.findAll({
+     raw: true,
       where: {
         title: {
           $iLike: `%${req.query.title}%`
         }
       }
     })
-    .then( (products) => {
-      let Prods = products[0].dataValues;      
-      console.log('Prods', Prods);
-      res.render('search-products', { Prods })
+    .then( (products) => {     
+      console.log('Product', products);
+      res.render('search-products', { products })
     })
     .catch( (err) => {
       next(err)
@@ -98,21 +98,4 @@ module.exports.searchProducts = (req, res, next) => {
     return res.redirect('/');
   };
 };
-
-//   const { Product } = req.app.get('models');
-//   if (req.user) {
-//     Product.findAll({
-//       where: { title: req.query.title}
-//     }).then( (prods) => {
-//       let Prods = prods[0].dataValues;      
-//       res.render('search-products', { Prods })
-//     })
-//     .catch( (err) => {
-//       next(err)
-//     });
-//   } else {
-//     return res.redirect('/');
-//   };
-// };
-
 
