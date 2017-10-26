@@ -1,5 +1,6 @@
 'use strict';
-// let sequelize = require('sequelize');
+const passport = require('passport');
+
 //jm: this func first checks if user has an existing order or not, creates order if needed, then adds product to prodorder
 module.exports.checkMakeOrder = (req, res, next) => {
 	const { Product, Order, Product_Order } = req.app.get('models');
@@ -80,6 +81,7 @@ module.exports.getOpenOrder = (req, res, next) => {
 //finAndCountAll returns that I have 6 rows, but now how many of each product id
 module.exports.countEachProdOnOrder = (req, res, next) => {
   let order_id = req.order_id;
+  console.log("order ID to pass to pug", order_id);
   let cart = req.cart;
   let cartProducts = req.cartProducts;
   let { sequelize } = req.app.get('models');
@@ -96,8 +98,6 @@ module.exports.countEachProdOnOrder = (req, res, next) => {
       priceArr.push(costItem);
     }
     let total = priceArr.reduce((sum, value) => sum + value, 0);    
-    console.log("total", total);
-    console.log("pricearr", priceArr);
     res.render('open-order', {
       cart,
       cartProducts,
@@ -108,9 +108,42 @@ module.exports.countEachProdOnOrder = (req, res, next) => {
 };
 
 module.exports.renderCompleteOrderView = (req, res, next) => {
-  const { Payment_Type, User }  = req.app.get('models');
-  Payment_Type.findAll({where: {user_id: req.user.id}})
-  .then( (foundTypes) => {
-    console.log("FOUND PAYMENT TYPES!", foundTypes);
+    console.log("made it to the function");
+  if (req.user) {
+    console.log("made it to the function");
+    const { Payment_Type, Order }  = req.app.get('models');
+    Payment_Type.findAll({where: {user_id: req.user.id}})
+    .then( (foundTypes) => {
+      let pmtOpts = foundTypes.map(function(each) {
+        return each.dataValues;
+      })
+      let order_id = req.params.id;
+      console.log("order deets", order_id);
+      console.log("payment options", pmtOpts);
+      res.render('add-payment', {
+        pmtOpts,
+        order_id
+      })
+    })
+    .catch( (err) => {
+      next(err);
+    })
+  } else {
+    return res.redirect('/');
+  };
+};
+
+module.exports.payForOrder = (req, res, next) => {
+  const { Order }  = req.app.get('models');
+  console.log("req body", req.body);
+  Order.update({
+    payment_type_id: req.body.payment_type_id
+  }, {where: {id: req.params.id}})
+  .then( (result) => {
+    res.redirect('/confirm')
   })
 };
+
+module.exports.renderThanksPage = (req, res, next) => {
+  res.render('thanks');
+}

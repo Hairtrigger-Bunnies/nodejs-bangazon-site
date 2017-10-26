@@ -11,5 +11,4 @@ block content
             h5 $#{product.price}
             h5 #{product.quantityInCart} currently in your cart.
       h2 Your total is $#{total}.
-      button(type="button" id="completeOpenOrderBtn" href=`/order/${order_id}`) Complete Order 
-
+      a(href=`/order/${order_id}`) Complete Order
