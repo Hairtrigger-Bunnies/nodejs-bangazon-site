@@ -13,12 +13,11 @@ module.exports.checkMakeOrder = (req, res, next) => {
       let param = req.params.id;
       Product.findById(param)
       .then( (prod) => {
-        //take the order and product data to insert into prodorder table
-        Product_Order.create({
-          order_id:order.dataValues.id,
-          product_id:prod.dataValues.id
-        })
+
+        //take the order and product data to insert into prodorder table *****
+        order.addProduct(prod)
       })
+
       .catch( (err) => {
         res.status(200).json(err);
       })
@@ -34,11 +33,11 @@ module.exports.checkMakeOrder = (req, res, next) => {
         let param = req.params.id;
         Product.findById(param)
         .then( (prod) => {
-          //take the order and product data to insert into prodorder table          
-          Product_Order.create({
-            order_id:neworder.dataValues.id,
-            product_id:prod.dataValues.id
-          })
+          //take the order and product data to insert into prodorder table ****
+          
+          
+          neworder.addProduct(prod);
+          
         })
       })
       .then( () => {
@@ -52,7 +51,7 @@ module.exports.checkMakeOrder = (req, res, next) => {
 }
 
 module.exports.destroyProductFromOrder = (req, res, next) => {
-  const { Product, Product_Order, Order } = req.app.get('models');
+  const { Product, Order } = req.app.get('models');
   let uid = req.user.id;
     // if (req.session.passport.user.id == req.params.user_id) {
       let param = req.params.id;
@@ -62,12 +61,7 @@ module.exports.destroyProductFromOrder = (req, res, next) => {
         Order.findOne({ where: {payment_type_id: null, user_id: uid}})
         .then( (order) => {
 
-          Product_Order.destroy({
-            where: {
-              product_id: prod.dataValues.id,
-              order_id: order.dataValues.id
-            }
-          })
+          order.removeProduct(prod)
 
           .then( () => {
             res.redirect('/product');
@@ -90,14 +84,14 @@ module.exports.destroyOrder = (req, res, next) => {
   .then( (order) => {
 
     Order.destroy({ where: {order_id: order.dataValues.id}})
-    .then( () => {
+    // .then( () => {
 
-      Product_Order.destroy({ where: {order_id: order.dataValues.id}})
-      .then( (orderprods) => {
-        Product_Order.destroy
-      })
+    //   Product_Order.destroy({ where: {order_id: order.dataValues.id}})
+    //   .then( (orderprods) => {
+    //     Product_Order.destroy
+    //   })
 
-    })
+    // })
 
   })
 };

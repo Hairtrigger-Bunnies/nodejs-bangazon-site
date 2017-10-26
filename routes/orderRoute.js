@@ -11,9 +11,9 @@ const {
   } = require('../controllers/orderCtrl.js');
 
 router.post('/order/:id', isLoggedIn, checkMakeOrder);
-router.get('/delete_order/:id', isLoggedIn, destroyOrder);
+router.get('/delete_order/:id/:user_id', isLoggedIn, destroyOrder);
 router.get('/remove_order_product/:id', isLoggedIn, destroyProductFromOrder);
-router.post('/cart', isLoggedIn, getOpenOrder);
+router.get('/cart', isLoggedIn, getOpenOrder);
 
 
 function isLoggedIn(req, res, next) {
