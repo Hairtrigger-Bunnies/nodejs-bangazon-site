@@ -40,7 +40,7 @@ For both OSX and Windows users
 
 NPM
 
-Run npm install —save -dev to install the node modules both globally and save it to the package.json in one step.
+Run npm install to install the node modules and save it to the package.json in one step.
 
 
 Run npm run rollDB
