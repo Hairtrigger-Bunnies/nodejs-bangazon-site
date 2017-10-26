@@ -20,17 +20,18 @@ This group project allows a Seller/Buyer to interact with a website ordering sys
 >
 Installing Technologies/ Dependencies
 
-Pug
-Sequelize
-PSQL
-Method-Overide
-Express 
-Passport
-Bcrypt-nodejs
-Body-parser
-Express-flash
-Express-session
-Nodemon
+Pug,
+Sequelize,
+PSQL,
+Method-Overide,
+Express,
+Passport,
+Bcrypt-nodejs,
+Body-parser,
+Express-flash,
+Express-session,
+Nodemon,
+and
 Faker
 
 Download and use any text editor of your choosing: SublimeText, VS Code, etc.
