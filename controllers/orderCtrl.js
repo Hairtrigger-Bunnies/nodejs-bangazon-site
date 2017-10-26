@@ -57,7 +57,7 @@ module.exports.getOpenOrder = (req, res, next) => {
   Order.findAll({include: [{model: Product}], where: {payment_type_id: null, user_id: req.user.id}}) //include the Product so that it will go through the join table to get the products on that order
   .then( (openOrder) => {
     // console.log("openOrder??", openOrder);
-    if (!openOrder) {
+    if (!openOrder[0]) {
       //alert that your cart is empty, redirect to main/product page? TODO: this
       console.log("Your cart is empty!");
       req.flash('emptyCart',`Your cart is empty!`);
@@ -79,23 +79,38 @@ module.exports.getOpenOrder = (req, res, next) => {
 //need to count them somehow to show how many of each we have in cart! sequelize.count???
 //finAndCountAll returns that I have 6 rows, but now how many of each product id
 module.exports.countEachProdOnOrder = (req, res, next) => {
+  let order_id = req.order_id;
   let cart = req.cart;
   let cartProducts = req.cartProducts;
   let { sequelize } = req.app.get('models');
   sequelize.query(`SELECT product_id, COUNT(*) FROM "Product_Orders" WHERE order_id=${req.order_id} GROUP BY product_id`, { type: sequelize.QueryTypes.SELECT})
   .then( (results) => {
+    let priceArr = [];
     for (let i=0; i<cartProducts.length; i++) {
       results.forEach( (resultObj => {
         if (resultObj.product_id === cartProducts[i].id) {
           cartProducts[i].quantityInCart = resultObj.count;
-        }
+        } 
       }))
+      let costItem = parseInt(cartProducts[i].quantityInCart) * parseInt(cartProducts[i].price);
+      priceArr.push(costItem);
     }
-    console.log("cart", cart);
-    console.log("cartProducts", cartProducts);
+    let total = priceArr.reduce((sum, value) => sum + value, 0);    
+    console.log("total", total);
+    console.log("pricearr", priceArr);
     res.render('open-order', {
       cart,
-      cartProducts
+      cartProducts,
+      total,
+      order_id
     });
+  })
+};
+
+module.exports.renderCompleteOrderView = (req, res, next) => {
+  const { Payment_Type, User }  = req.app.get('models');
+  Payment_Type.findAll({where: {user_id: req.user.id}})
+  .then( (foundTypes) => {
+    console.log("FOUND PAYMENT TYPES!", foundTypes);
   })
 };

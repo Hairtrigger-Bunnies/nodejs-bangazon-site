@@ -6,10 +6,12 @@ const router = Router();
 const {
     checkMakeOrder,
     getOpenOrder,
-    countEachProdOnOrder
+    countEachProdOnOrder,
+    renderCompleteOrderView
   } = require('../controllers/orderCtrl.js');
 
 router.post('/order/:id', isLoggedIn, checkMakeOrder);
+router.get('/order/:id', isLoggedIn, renderCompleteOrderView);
 router.get('/cart', isLoggedIn, getOpenOrder, countEachProdOnOrder);
 
 

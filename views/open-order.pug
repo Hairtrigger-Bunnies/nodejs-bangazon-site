@@ -1,12 +1,15 @@
 extends index.pug
 
 block content
-  h2 Your Cart Items:
-    ul
-      each product in cartProducts
-        li 
-          h4= product.title
-          h5= product.description
-          h5 $#{product.price}
-          h5 #{product.quantityInCart} currently in your cart.
-    button(type="button") 
+  div(id="yourCart")
+    h2 Your Cart Items:
+      ul
+        each product in cartProducts
+          li 
+            h4= product.title
+            h5= product.description
+            h5 $#{product.price}
+            h5 #{product.quantityInCart} currently in your cart.
+      h2 Your total is $#{total}.
+      button(type="button" id="completeOpenOrderBtn" href=`/order/${order_id}`) Complete Order 
+

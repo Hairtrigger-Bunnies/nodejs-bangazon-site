@@ -6,3 +6,8 @@ $('#editUserBtn').click(function(){
     $('#userDataDisp').addClass('hidden');
     $('#editUserForm').removeClass('hidden');
 }); 
+
+$('#completeOpenOrderBtn').click(function(){
+    $('#yourCart').addClass('hidden');
+    
+})
