@@ -75,20 +75,21 @@ module.exports.getAllProducts = (req, res, next) => {
 	})
 };
 
-//bs- get product related to search results
+//bs/DR- get product related to search results
 module.exports.searchProducts = (req, res, next) => {
-  const { Product } = req.app.get('models');
-  if (req.user) {
-    Product.findAll({
-      where: { title: req.query.title}
-    }).then( (prods) => {
-      let Prods = prods[0].dataValues;      
+	const { Product } = req.app.get('models');
+	Product.findAll({
+		where: {
+			title: {
+				$iLike: `%${req.query.title}%`
+			}
+		}
+	})
+		.then(Prods => {
+      console.log("Prods",Prods);
       res.render('search-products', { Prods })
     })
-    .catch( (err) => {
-      next(err)
-    });
-  } else {
-    return res.redirect('/');
-  };
-};
+      .catch( (err) => {
+        next(err)
+      })
+    };

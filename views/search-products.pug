@@ -1,6 +1,7 @@
 extends index.pug
 
 block content
+  each p in Prods
   h1= Prods.title
   h4= Prods.description
   h4 Current price: $#{Prods.price}
