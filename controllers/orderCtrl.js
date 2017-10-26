@@ -13,11 +13,10 @@ module.exports.checkMakeOrder = (req, res, next) => {
       let param = req.params.id;
       Product.findById(param)
       .then( (prod) => {
-
         //take the order and product data to insert into prodorder table *****
+        //still doesn't accept dupes, perhaps we can mess with extra params here?
         order.addProduct(prod)
       })
-
       .catch( (err) => {
         res.status(200).json(err);
       })
@@ -34,10 +33,8 @@ module.exports.checkMakeOrder = (req, res, next) => {
         Product.findById(param)
         .then( (prod) => {
           //take the order and product data to insert into prodorder table ****
-          
-          
+          //still doesn't accept dupes, perhaps we can mess with extra params here?
           neworder.addProduct(prod);
-          
         })
       })
       .then( () => {
@@ -53,45 +50,33 @@ module.exports.checkMakeOrder = (req, res, next) => {
 module.exports.destroyProductFromOrder = (req, res, next) => {
   const { Product, Order } = req.app.get('models');
   let uid = req.user.id;
-    // if (req.session.passport.user.id == req.params.user_id) {
-      let param = req.params.id;
-      Product.findById(param)
-      .then( (prod) => {
+  let param = req.params.id;
+  Product.findById(param)
+  .then( (prod) => {
 
-        Order.findOne({ where: {payment_type_id: null, user_id: uid}})
-        .then( (order) => {
+    Order.findOne({ where: {payment_type_id: null, user_id: uid}})
+    .then( (order) => {
+      //syncro gives us this func 
+      order.removeProduct(prod)
 
-          order.removeProduct(prod)
-
-          .then( () => {
-            res.redirect('/product');
-          })
-
-        })
-
+      .then( () => {
+        res.redirect('/cart');
       })
-    
-  //   } else {
-  //    return res.redirect('/');
-  // }
+    })
+  })
 };
 
 module.exports.destroyOrder = (req, res, next) => {
-  const { Product, Product_Order, Order } = req.app.get('models');
+  const { Product, Order } = req.app.get('models');
   let uid = req.user.id;
-  let param = req.params.id;
-  Order.findById(param)
+  Order.findOne({ where: {payment_type_id: null, user_id: uid}})
   .then( (order) => {
 
-    Order.destroy({ where: {order_id: order.dataValues.id}})
-    // .then( () => {
-
-    //   Product_Order.destroy({ where: {order_id: order.dataValues.id}})
-    //   .then( (orderprods) => {
-    //     Product_Order.destroy
-    //   })
-
-    // })
+    //destroys order, but the history remains in the join table? doesn't affect anything though...
+    Order.destroy({ where: {payment_type_id: null, user_id: uid}})
+    .then( () => {
+      res.redirect('/');
+    })
 
   })
 };
